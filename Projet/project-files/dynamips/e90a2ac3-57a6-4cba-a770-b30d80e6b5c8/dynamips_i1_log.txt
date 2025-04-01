@@ -1,0 +1,70 @@
+Apr 01 03:50:28.423 HYPERVISOR: Release 0.2.17-x86/Windows (tag 2017072410)
+Apr 01 03:50:28.424 HYPERVISOR: Started on IP = localhost, TCP port = 52801.
+Apr 01 03:50:28.657 HYPERVISOR: exec_cmd: hypervisor version 
+Apr 01 03:50:28.658 HYPERVISOR: exec_cmd: hypervisor working_dir C:\Users\tigmi\GNS3\projects\projet v6\project-files\dynamips 
+Apr 01 03:50:28.673 GENERAL: working_dir=C:\Users\tigmi\GNS3\projects\projet v6\project-files\dynamips
+Apr 01 03:50:28.674 HYPERVISOR: exec_cmd: hypervisor working_dir C:\Users\tigmi\GNS3\projects\projet v6\project-files\dynamips\e90a2ac3-57a6-4cba-a770-b30d80e6b5c8 
+Apr 01 03:50:28.675 GENERAL: working_dir=C:\Users\tigmi\GNS3\projects\projet v6\project-files\dynamips\e90a2ac3-57a6-4cba-a770-b30d80e6b5c8
+Apr 01 03:50:28.676 HYPERVISOR: exec_cmd: vm create R1 1 c3745 
+Apr 01 03:50:28.679 VM: VM R1 created.
+Apr 01 03:50:28.680 HYPERVISOR: exec_cmd: vm set_con_tcp_port R1 5000 
+Apr 01 03:50:28.680 HYPERVISOR: exec_cmd: c3745 get_mac_addr R1 
+Apr 01 03:50:28.681 HYPERVISOR: exec_cmd: vm set_disk0 R1 0 
+Apr 01 03:50:28.682 HYPERVISOR: exec_cmd: vm set_exec_area R1 64 
+Apr 01 03:50:28.684 HYPERVISOR: exec_cmd: vm set_ios R1 C:/Users/tigmi/GNS3/images/IOS/c3745-adventerprisek.124-25d.image 
+Apr 01 03:50:28.684 HYPERVISOR: exec_cmd: c3745 set_mac_addr R1 c401.1bb4.0000 
+Apr 01 03:50:28.685 HYPERVISOR: exec_cmd: vm set_nvram R1 256 
+Apr 01 03:50:28.686 HYPERVISOR: exec_cmd: vm set_ram R1 256 
+Apr 01 03:50:28.686 HYPERVISOR: exec_cmd: vm get_status R1 
+Apr 01 03:50:28.686 HYPERVISOR: exec_cmd: vm slot_add_binding R1 1 0 NM-1FE-TX 
+Apr 01 03:50:28.687 HYPERVISOR: exec_cmd: vm get_status R1 
+Apr 01 03:50:28.687 HYPERVISOR: exec_cmd: vm slot_add_binding R1 2 0 NM-1FE-TX 
+Apr 01 03:50:30.784 HYPERVISOR: exec_cmd: nio create_udp udp-021959bf-1faf-4232-89c9-e7c279b66393 10001 127.0.0.1 10002 
+Apr 01 03:50:31.124 HYPERVISOR: exec_cmd: vm slot_add_nio_binding R1 0 0 udp-021959bf-1faf-4232-89c9-e7c279b66393 
+Apr 01 03:50:31.125 HYPERVISOR: exec_cmd: vm get_status R1 
+Apr 01 03:50:31.163 HYPERVISOR: exec_cmd: nio create_udp udp-608c33c0-48ac-4f64-87fc-2fadbbdb5571 10004 127.0.0.1 10005 
+Apr 01 03:50:31.176 HYPERVISOR: exec_cmd: vm slot_add_nio_binding R1 2 0 udp-608c33c0-48ac-4f64-87fc-2fadbbdb5571 
+Apr 01 03:50:31.176 HYPERVISOR: exec_cmd: vm get_status R1 
+Apr 01 03:50:31.315 HYPERVISOR: exec_cmd: nio create_udp udp-813c5d3d-6fcb-45f0-8ed5-959b81a00f84 10008 127.0.0.1 10009 
+Apr 01 03:50:31.319 HYPERVISOR: exec_cmd: vm slot_add_nio_binding R1 0 1 udp-813c5d3d-6fcb-45f0-8ed5-959b81a00f84 
+Apr 01 03:50:31.319 HYPERVISOR: exec_cmd: vm get_status R1 
+Apr 01 03:50:31.350 HYPERVISOR: exec_cmd: nio create_udp udp-e56fe1f9-e48a-4a87-94fa-cd8f03e35f50 10012 127.0.0.1 10013 
+Apr 01 03:50:31.352 HYPERVISOR: exec_cmd: vm slot_add_nio_binding R1 1 0 udp-e56fe1f9-e48a-4a87-94fa-cd8f03e35f50 
+Apr 01 03:50:31.353 HYPERVISOR: exec_cmd: vm get_status R1 
+Apr 01 03:50:39.776 HYPERVISOR: exec_cmd: vm create Ghost 0 c3745 
+Apr 01 03:50:39.779 VM: VM Ghost created.
+Apr 01 03:50:39.780 HYPERVISOR: exec_cmd: vm set_ios Ghost C:/Users/tigmi/GNS3/images/IOS/c3745-adventerprisek.124-25d.image 
+Apr 01 03:50:39.781 HYPERVISOR: exec_cmd: vm set_ghost_status Ghost 1 
+Apr 01 03:50:39.782 HYPERVISOR: exec_cmd: vm set_ghost_file Ghost C:\Users\tigmi\GNS3\projects\projet v6\project-files\dynamips\c3745-adventerprisek.124-25d.image-256.ghost 
+Apr 01 03:50:39.783 HYPERVISOR: exec_cmd: vm set_ram Ghost 256 
+Apr 01 03:50:39.784 HYPERVISOR: exec_cmd: vm get_status Ghost 
+Apr 01 03:50:39.785 HYPERVISOR: exec_cmd: vm set_config Ghost configs\i0_startup-config.cfg 
+Apr 01 03:50:39.785 HYPERVISOR: exec_cmd: vm start Ghost 
+Apr 01 03:50:40.294 HYPERVISOR: exec_cmd: vm get_status Ghost 
+Apr 01 03:50:40.296 HYPERVISOR: exec_cmd: vm stop Ghost 
+Apr 01 03:50:40.438 VM: VM Ghost shutdown.
+Apr 01 03:50:40.439 HYPERVISOR: exec_cmd: vm extract_config Ghost 
+Apr 01 03:50:40.441 HYPERVISOR: exec_cmd: vm clean_delete Ghost 
+Apr 01 03:50:40.441 VM: VM Ghost destroyed.
+Apr 01 03:50:40.446 HYPERVISOR: exec_cmd: vm set_ghost_status R1 2 
+Apr 01 03:50:40.446 HYPERVISOR: exec_cmd: vm set_ghost_file R1 C:\Users\tigmi\GNS3\projects\projet v6\project-files\dynamips\c3745-adventerprisek.124-25d.image-256.ghost 
+Apr 01 03:50:40.447 HYPERVISOR: exec_cmd: vm get_status R1 
+Apr 01 03:50:40.457 HYPERVISOR: exec_cmd: vm set_config R1 configs\i1_startup-config.cfg 
+Apr 01 03:50:40.457 HYPERVISOR: exec_cmd: vm start R1 
+Apr 01 05:14:35.198 HYPERVISOR: exec_cmd: vm get_status R1 
+Apr 01 05:14:35.198 HYPERVISOR: exec_cmd: vm slot_disable_nio R1 2 0 
+Apr 01 05:14:35.208 HYPERVISOR: exec_cmd: vm slot_remove_nio_binding R1 2 0 
+Apr 01 05:14:35.222 HYPERVISOR: exec_cmd: nio delete udp-608c33c0-48ac-4f64-87fc-2fadbbdb5571 
+Apr 01 05:14:51.216 HYPERVISOR: exec_cmd: nio create_udp udp-3e5e1791-5202-4a43-a121-d732e9d11711 10004 127.0.0.1 10005 
+Apr 01 05:14:51.220 HYPERVISOR: exec_cmd: vm slot_add_nio_binding R1 2 0 udp-3e5e1791-5202-4a43-a121-d732e9d11711 
+Apr 01 05:14:51.221 HYPERVISOR: exec_cmd: vm get_status R1 
+Apr 01 05:14:51.222 HYPERVISOR: exec_cmd: vm slot_enable_nio R1 2 0 
+Apr 01 05:32:46.544 HYPERVISOR: exec_cmd: vm get_status R1 
+Apr 01 05:32:46.544 HYPERVISOR: exec_cmd: vm stop R1 
+Apr 01 05:32:46.597 VM: VM R1 shutdown.
+Apr 01 05:32:46.599 HYPERVISOR: exec_cmd: vm extract_config R1 
+Apr 01 05:34:04.013 HYPERVISOR: exec_cmd: vm get_status R1 
+Apr 01 05:34:04.013 HYPERVISOR: exec_cmd: vm extract_config R1 
+Apr 01 05:34:04.533 HYPERVISOR: Stopped.
+Apr 01 05:34:04.533 VM: VM R1 destroyed.
+Apr 01 05:34:04.534 GENERAL: reset done.
