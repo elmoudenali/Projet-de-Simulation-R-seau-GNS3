@@ -1,0 +1,68 @@
+# Instructions pour créer la topologie dans GNS3
+
+1. Ajout des appareils:
+   - 4 VPCS par étage (2 dans VLAN 10 et 2 dans VLAN 20, total: 12 PCs)
+   - 3 Switches Ethernet pour les étages (Switch-E1, Switch-E2, Switch-E3)
+   - 1 Switch Ethernet L3 global (Switch-Global)
+   - 1 Switch Ethernet pour la DMZ
+   - 1 FortiGate VM (importez l'appliance depuis le marketplace GNS3)
+   - 1 Routeur Cisco pour simuler le FAI
+   - 1 VM Windows Server Core (à importer dans GNS3)
+   - 1 VM Ubuntu Server (à importer dans GNS3)
+   - 1 VM Kali Linux (à importer dans GNS3)
+   - 1 VM Windows XP (à importer dans GNS3 comme cible vulnérable)
+
+2. Connexions:
+   ## Connexions des étages
+   - PCs -> Switch d'étage correspondant (E1, E2 ou E3)
+   - Switch-E1 -> Switch-Global
+   - Switch-E2 -> Switch-Global
+   - Switch-E3 -> Switch-Global
+   
+   ## Autres connexions
+   - Switch-Global -> FortiGate (port1, interface internal)
+   - Switch DMZ -> FortiGate (port2, interface dmz)
+   - FortiGate (port3, interface external) -> Routeur R1
+   - Windows Server Core -> Switch DMZ
+   - Ubuntu Server -> Switch DMZ
+   - Kali Linux -> Routeur R1 (interface e0/2)
+   - Windows XP -> Routeur R1 (interface e0/3)
+   
+3. Configuration de base des interfaces:
+   ## Adressage IP des PCs par étage et par VLAN:
+   
+   # Étage 1:
+   - PCs VLAN 10: 192.168.10.11-12/24, GW: 192.168.10.254
+   - PCs VLAN 20: 192.168.20.11-12/24, GW: 192.168.20.254
+   
+   # Étage 2:
+   - PCs VLAN 10: 192.168.10.13-14/24, GW: 192.168.10.254
+   - PCs VLAN 20: 192.168.20.13-14/24, GW: 192.168.20.254
+   
+   # Étage 3:
+   - PCs VLAN 10: 192.168.10.15-16/24, GW: 192.168.10.254
+   - PCs VLAN 20: 192.168.20.15-16/24, GW: 192.168.20.254
+   
+   ## Autres équipements
+   - Switch-Global VLAN 10: 192.168.10.254/24
+   - Switch-Global VLAN 20: 192.168.20.254/24
+   - FortiGate internal: 192.168.1.1/24
+   - FortiGate dmz: 10.0.0.1/24
+   - FortiGate external: 203.0.113.2/24
+   - R1 vers FortiGate: 203.0.113.1/24
+   - R1 vers Kali: 203.0.113.254/24
+   - R1 vers Windows XP: 203.0.113.253/24
+   - Windows Server: 10.0.0.2/24, GW: 10.0.0.1
+   - Ubuntu Server: 10.0.0.3/24, GW: 10.0.0.1
+   - Kali Linux: 203.0.113.5/24, GW: 203.0.113.254
+   - Windows XP: 203.0.113.10/24, GW: 203.0.113.253
+
+4. Configuration NAT:
+   # NAT sur le FortiGate:
+   - NAT activé pour tout le trafic des VLANs 10/20 et DMZ vers Internet
+   - Translation automatique des adresses privées vers l'adresse IP publique du FortiGate
+   
+   # NAT sur le routeur R1:
+   - NAT pour les hôtes du segment WAN (Windows XP et Kali Linux)
+   - Interface GigabitEthernet0/1 (209.165.200.1/24) simulant une connexion Internet
+   - NAT overload (PAT) configuré pour partager l'adresse IP publique
