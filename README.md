@@ -8,7 +8,7 @@ Ce projet simule un réseau d'entreprise complet avec segmentation, DMZ et sécu
 - **DMZ**: Héberge des serveurs (Windows et Ubuntu)
 - **Security**: Implémentation FortiGate avec politiques de sécurité
 - **WAN**: Simulation d'internet avec routeur Cisco
-
+![Schéma d'architecture réseau](architecture_reseau.png)
 ## Topologie
 
 La topologie est composée de:
@@ -48,8 +48,7 @@ Le projet inclut plusieurs scripts de durcissement et configurations de sécurit
 - `Routeur/`: Configuration du routeur
 - `Serveurs/`: Scripts pour les serveurs
 - `Scripts/`: Scripts de durcissement et autres utilitaires
+- `Projet/`: fichier GNS3
 
-## Auteur
 
-EL MOUDEN Ali
 
